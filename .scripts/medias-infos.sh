@@ -1,0 +1,1 @@
+/nfs/web/dotfiles/scripts/spotify-infos.sh
