@@ -1,39 +1,17 @@
-" Lightline configuration
-" https://github.com/itchyny/lightline.vim
-let g:lightline = {
-	\ 'colorscheme': 'nord',
-	\ 'component_function': {
-    \   'filetype': 'MyFiletype',
-    \   'fileformat': 'MyFileformat',
-	\ }
-	\ }
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
+" indentline
+let g:indentLine_color_term = 19 
+let g:indentLine_char = '│' 
+" BuftabLine
+let g:buftabline_show = 1
 
 " vim-devicons
-let g:WebDevIconsUnicodeGlyphDoubleWith = 0
+let g:WebDevIconsUnicodeGlyphDoubleWith = 1
 
 " vim-indent-guides
 " https://github.com/nathanaelkane/vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 
-let g:ycm_filetype_blacklist = {
-    \ 'notes': 1,
-    \ 'unite': 1, 
-    \ 'tagbar': 1, 
-    \ 'pandoc': 1, 
-    \ 'qf': 1, 
-    \ 'vimwiki': 1, 
-    \ 'text': 1, 
-    \ 'infolog': 1, 
-    \ 'mail': 1
-  \ }
+let g:ycm_filetype_blacklist = { 'notes': 1, 'unite': 1,  'tagbar': 1,  'pandoc': 1,  'qf': 1,  'vimwiki': 1,  'text': 1,  'infolog': 1,  'mail': 1 }
 
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
@@ -70,4 +48,5 @@ endif
 
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
 au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+
 
