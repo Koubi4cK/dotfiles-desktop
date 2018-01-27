@@ -1,4 +1,12 @@
+" ALE
+hi clear ALEErrorSign
+hi clear ALEWarningSign
+
+let g:ale_sign_error = '⏺'
+let g:ale_warning_sign = '!'"
+
 " indentline
+let g:indentline_setColors = 1 
 let g:indentLine_color_term = 19 
 let g:indentLine_char = '│' 
 " BuftabLine

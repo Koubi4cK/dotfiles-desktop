@@ -5,7 +5,7 @@ set showtabline=0
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set cursorline
-color default
+color jose
 
 "
 " Status Line
@@ -33,22 +33,8 @@ let g:currentmode={
   \ 't'  : 'Terminal '
 \}
 
-" Buftabline
-hi! BufTabLineCurrent ctermbg=5 ctermfg=0 
-hi! BufTabLineActive ctermbg=5
-hi! BufTabLineHidden ctermbg=18 ctermfg=7
-hi! BufTabLineFill ctermbg=0
 
-hi User1 ctermbg=18 ctermfg=7
-hi User2 ctermbg=19 ctermfg=7
-hi User3 ctermbg=16 ctermfg=0
-hi User4 ctermbg=19 ctermfg=7
 
-if version >= 700
-  highlight statusLine cterm=none ctermfg=black ctermbg=green
-  au InsertLeave * highlight StatusLine cterm=none ctermfg=black ctermbg=green
-  au InsertEnter * highlight StatusLine cterm=none ctermfg=19 ctermbg=blue
-endif
 
 " Devicons Functions
 function! MyFiletype()
@@ -70,14 +56,6 @@ set statusline+=%3*\ %{MyFiletype()}                  " Devicons Filetype()
 set statusline+=%3*\ %{MyFileformat()}                " Devicons FileFormat()
 set statusline+=%4*\ %p%%\                            " File Percent 
 
-" LinNr color
-hi! LineNr ctermfg=19
-hi! EndOfBuffer ctermbg=0 ctermfg=0
-" Cursor Line
-hi! CursorLine cterm=none ctermbg=18
-hi! CursorLineNr ctermfg=8 ctermbg=18
-
-
 " Indentation
 set smartindent
 set tabstop=2
@@ -95,9 +73,10 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 
+au FileType netrw let g:netrw_list_hide = netrw_gitignore#Hide()
+hi! netrwTreeBar ctermfg=19
 set fillchars+=vert:\│ 
-hi! VertSplit ctermbg=18 ctermfg=0
-hi! StatusLineNC ctermbg=0 ctermfg=0
+
 
 
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
