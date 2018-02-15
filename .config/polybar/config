@@ -1,1 +1,318 @@
-/nfs/web/dotfiles/config/polybar/config
+#######################################################################
+#                         Variables                                   #
+#######################################################################
+
+[colors]
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
+
+black = ${xrdb:*.color0}
+red = ${xrdb:*.color9} 
+green = ${xrdb:*.color2}
+yellow = ${xrdb:*.color11} 
+blue = ${xrdb:*.color4} 
+magenta =  ${xrdb:*.color5} 
+cyan =  ${xrdb:*.color6} 
+gray = ${xrdb:*.color8}
+
+module.bg = ${colors.black}
+module.fg = ${colors.foreground}
+module.prefix.fg = ${colors.black}
+ 
+[wm_settings]
+icon_focused = 
+icon_unfocused = 
+
+icon_occupied = 
+
+padding = 1
+
+[bar_settings]
+height = 20
+
+font = Iosevka Term:size=9;2
+font-icon = WunconSiji:size=4;2
+
+
+#######################################################################
+#                         Main Bar                                    #
+#######################################################################
+
+[bar/main_bar]
+monitor = ${env:MONITOR:DP-4}
+height = ${bar_settings.height}
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = ${bar_settings.font}
+font-1 = ${bar_settings.font-icon} 
+
+line-size = 1
+line-color = #f00
+
+border-top-size = 5
+border-bottom-size = 5
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+modules-left = mpd 
+modules-center = bspwm
+modules-right = pkg gmail date
+
+wm-restack = bspwm
+
+
+#######################################################################
+#                         Second Bar                                  #
+#######################################################################
+
+[bar/second_bar]
+monitor = ${env:MONITOR:HDMI-0}
+height = ${bar_settings.height}  
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = #f00
+
+border-top-size = 5
+border-bottom-size = 5
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ${bar_settings.font}
+font-1 = ${bar_settings.font-icon} 
+
+modules-left = 
+modules-center = bspwm
+modules-right = 
+
+tray-position = right
+tray-padding = 2
+tray-transparent = false
+
+wm-restack = bspwm
+
+
+#######################################################################
+#                         Modules                                     #
+#######################################################################
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+
+format-online = <icon-prev><label-song>
+
+label-song = %artist% - %title%
+label-song-padding = 1
+label = "%output:0:30:...%"
+label-song-background = ${colors.module.bg}
+label-song-foreground = ${colors.module.fg}
+
+icon-prev = 
+icon-prev-background = ${colors.blue}
+icon-prev-foreground = ${colors.module.prefix.fg}
+icon-prev-padding = 1
+format-online-prefix-padding = 1
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+
+format = <label-state> <label-mode>
+
+label-focused = ${wm_settings.icon_focused}
+label-focused-padding = ${wm_settings.padding}
+
+label-occupied = ${wm_settings.icon_occupied}
+label-occupied-padding = ${wm_settings.padding}
+label-occupied-foreground = ${colors.gray}
+
+label-urgent = %icon%
+label-urgent-padding = ${wm_settings.padding}
+
+label-empty = ${wm_settings.icon_unfocused}
+label-empty-foreground = #44ffffff
+label-empty-padding = ${wm_settings.padding}
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+strip-wsnumbers = true
+pin-workspaces = true
+enable-click = true
+
+label-mode-padding = 4
+label-mode-foreground = #000
+label-mode-background = ${colors.color8}
+
+; focused
+label-focused = %icon%
+label-focused-padding = 2
+label-focused-background = ${colors.color8}
+
+; unfocused
+label-unfocused = %icon%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.color0}
+
+; visible
+label-visible = %icon%
+label-visible-padding = 2
+label-visible-background = ${colors.color0}
+
+; urgent
+label-urgent = %icon%
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 2
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-default = 
+
+
+[module/date]
+type = internal/date
+interval = 5
+date = "%d/%m/%Y"
+date-alt = "%d/%m/%Y"
+time = " %H:%M "
+time-alt = "%H:%M"
+label = %time%
+
+format-prefix = 
+format-prefix-background = ${colors.green}
+format-prefix-foreground = ${colors.module.prefix.fg}
+format-prefix-padding = 1 
+format-background = ${colors.module.bg}
+format-foreground = ${colors.module.fg}
+format-padding = 0 
+
+label-padding = 0
+
+
+[module/pkg]
+type = custom/script
+interval = 350
+exec = /home/koubi4ck/.scripts/pkg.sh
+exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+format = <label>
+
+format-prefix = ""
+format-prefix-background = ${colors.yellow}
+format-prefix-foreground = ${colors.module.prefix.fg}
+format-prefix-padding = 1 
+format-background = ${colors.module.bg}
+format-foreground = ${colors.module.fg}
+format-padding = 0
+
+label = "%output:0:30%"
+label-padding = 0
+
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+format-padding = 2
+format-background = ${colors.red}
+label-open = ""
+label-open-foreground = ${colors.foreground}
+label-close = "  "
+label-close-foreground = ${colors.color15}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = "  "
+menu-0-0-exec = menu-open-1
+menu-0-1 = "  "
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+
+[module/pulseaudio]
+type = custom/script
+exec = .config/polybar/blocks/pulseaudio.sh
+interval = 1
+click-left = pavucontrol
+click-right = pulseaudio-ctl mute
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 2
+
+
+[module/gmail]
+type = custom/script
+exec = ~/.config/polybar/gmail/launch.py  
+interval = 1
+tail = true
+click-left = xdg-open https://mail.google.com
+
+
+format-prefix = 
+format-prefix-background = ${colors.red}
+format-prefix-padding = 1 
+format-background = ${colors.module.bg}
+format-foreground = ${colors.module.fg}
+format-padding = 0 
+
+label-padding = 0
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
