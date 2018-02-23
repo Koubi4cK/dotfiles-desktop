@@ -2,6 +2,7 @@ set number
 set noshowmode
 set showtabline=0
 filetype plugin on
+filetype plugin indent on " required!
 set omnifunc=syntaxcomplete#Complete
 set cursorline
 set background=dark
