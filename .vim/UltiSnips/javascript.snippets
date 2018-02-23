@@ -1,0 +1,61 @@
+############
+#  COMMON  #
+############
+
+# The smart snippets use a global options called
+# "g:ultisnips_javascript.{option}" which can control the format
+# of trailing semicolon, space before function paren, etc.
+#
+# e.g.
+# let g:ultisnips_javascript = {
+#      \ 'keyword-spacing': 'always',
+#      \ 'semi': 'never',
+#      \ 'space-before-function-paren': 'always',
+#      \ }
+
+
+global !p
+from javascript_snippets import (
+	semi, space_before_function_paren, keyword_spacing
+)
+endglobal
+
+###########################################################################
+#                         		   Snippets    			                        #
+###########################################################################
+
+snippet fun "function (fun)" w
+function ${1:func_name}(${2:args}) {
+	$3
+}
+endsnippet
+
+snippet cl "console.log(...)" b
+console.log($0);
+endsnippet
+
+snippet const "const declaration" b
+const ${1:const_name} = $2
+endsnippet
+
+snippet let "let declaration" b
+let ${1:let_name} = $2
+endsnippet
+
+snippet var "var declaration" b
+var ${1:var_name} = $2
+endsnippet
+
+snippet if "if..." 
+if (${1:condition}) {
+	$2
+}
+endsnippet
+
+snippet ife "if...else" 
+if (${1:condition}) {
+	$2
+} else {
+	$3
+}
+endsnippet
