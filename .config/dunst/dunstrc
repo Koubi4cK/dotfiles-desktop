@@ -3,13 +3,13 @@
 
     monitor = DP-4
     follow = none #   mouse/keyboard/none
-    geometry = "300x15-35+30"
+    geometry = "300x15-15+55"
 
     indicate_hidden = yes
     shrink = no
-    transparency = 5
+    #transparency = 5
 
-    notification_height = 0
+    notification_height = 10
 
 
     # Padding between text and separator.
@@ -19,8 +19,8 @@
     horizontal_padding = 8
 
 
-    frame_width = 0
-    frame_color = "#2E3440"
+    frame_width = 2
+    frame_color = "#18191B"
 
     separator_height = 2
     separator_color = auto
@@ -31,7 +31,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Source Code Pro 9
+    font = Iosevka Term 9
     line_height = 0
 
     markup = full     #        <b> <i> <s> <u>
@@ -68,10 +68,10 @@
     icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 75
+    max_icon_size = 70
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
 
@@ -158,8 +158,8 @@
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#434C5E"
-    foreground = "#E5E9F0"
+    background = "#131416"
+    foreground = "#C5C8C6"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon

@@ -2,8 +2,13 @@
 hi clear ALEErrorSign
 hi clear ALEWarningSign
 
-let g:ale_sign_error = '⏺'
-let g:ale_warning_sign = '!'"
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '·'
+
+" NERDTree + NerdTreeGit
+let g:loaded_netrwPlugin = 1
+let g:NERDTreeRespectWildIgnore = 1
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " indentline
 let g:indentline_setColors = 1 

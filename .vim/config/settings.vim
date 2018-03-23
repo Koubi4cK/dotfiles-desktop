@@ -57,23 +57,28 @@ endfunction
 " Buftabline
 hi BufTabLineCurrent ctermfg=15      ctermbg=0       cterm=none 
 hi BufTabLineActive  ctermfg=none    ctermbg=5       cterm=none
-hi BufTabLineHidden  ctermfg=7       ctermbg=none      cterm=none
+hi BufTabLineHidden  ctermfg=7       ctermbg=none    cterm=none
 hi BufTabLineFill    ctermfg=none    ctermbg=233     cterm=none
 
 " LineNr
 
 " Cursor Line
 hi CursorLine         ctermfg=none    ctermbg=0     cterm=none   
-hi CursorLineNr       ctermfg=15       ctermbg=none     cterm=none
+hi CursorLineNr       ctermfg=15      ctermbg=none  cterm=none
 
 " Statusbar
-hi User1              ctermfg=15       ctermbg=none     cterm=none
+hi User1              ctermfg=15      ctermbg=none  cterm=none
 hi User2              ctermfg=7       ctermbg=0     cterm=none 
 hi User3              ctermfg=0       ctermbg=5     cterm=none
 hi User4              ctermfg=7       ctermbg=0     cterm=none
 
+" ALE
+hi ALEErrorSign       ctermfg=1       ctermbg=none  cterm=bold
+hi ALEWarningSign     ctermfg=3       ctermbg=none  cterm=bold
+hi ALEError           ctermfg=15      ctermbg=1     cterm=underline,bold
+hi ALEWarning         ctermfg=0       ctermbg=11    cterm=underline,bold
 if version >= 700
-  highlight statusLine cterm=none ctermfg=black ctermbg=green
+  hi statusLine       ctermfg=0    ctermbg=2     cterm=none
   au InsertLeave * highlight StatusLine cterm=bold ctermfg=0 ctermbg=10
   au InsertEnter * highlight StatusLine cterm=bold ctermfg=0 ctermbg=12
 endif

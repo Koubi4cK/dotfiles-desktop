@@ -6,7 +6,7 @@ TITLE=$(mpc --format [%title%] | head -n1 | cut -f1 -d"(")
 FILE=$(mpc --format [%file%] | head -n1)
 
 getMPDCover () {
-  API_KEY="YOUR_API_KEY"
+  API_KEY="2a6e9e4c8f1514043c5d84b41ba758dc"
   URL=$( curl \
           --silent \
           --data-urlencode "api_key=${API_KEY}" \
@@ -24,3 +24,4 @@ then
   getMPDCover
 fi
   dunstify -r 2395 -t 5000  -i "/tmp/$FILE.png" "<b>$TITLE</b><br/>$ARTIST"
+

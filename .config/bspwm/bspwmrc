@@ -1,18 +1,15 @@
 #! /bin/sh
 
-sxhkd &
-
 # Border Colors
-bspc config normal_border_color "#2E3440"
-bspc config focused_border_color "#81A1C1"
-bspc config urgent_border_color "#BF616A"
-bspc config presel_border_color "#26E2FF"
+bspc config normal_border_color "#18191B"
+bspc config focused_border_color "#18191B"
+
 
 bspc monitor DP-4 -d 1 2 3
-bspc monitor HDMI-0 -d 4 5
+bspc monitor HDMI-0 -d 4 5 6
 bspc config focus_follows_pointer true
-bspc config border_width         4
-bspc config window_gap          12
+bspc config border_width         2
+bspc config window_gap          25
 
 # Golden Number \o/
 bspc config split_ratio          0.618
@@ -23,7 +20,7 @@ bspc config gapless_monocle      false
 #WS1
 #WS2
 bspc rule -a Chromium desktop='^2'
-bspc rule -a Firefox desktop='^2'
+bspc rule -a Firefox desktop='^4'
 #WS3
 bspc rule -a Spotify desktop='^3'
 #WS4
@@ -34,12 +31,29 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 
-
+## Float Apps
+bspc rule -a Mirage state=floating center=on
+bspc rule -a Nemo state=floating center=on
+bspc rule -a Pcmanfm state=floating center=on
+bspc rule -a feh state=floating center=on
+bspc rule -a File-roller state=floating center=on
+bspc rule -a Pavucontrol state=floating center=on
 # Polybar
 $HOME/.config/i3/polybar.sh
-
+ 
 # Screen Orientation
 xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --mode 1920x1080 --pos 0x0 --rotate normal --primary
 
 # Wallpaper
-$HOME/.scripts/setwall.sh /nfs/wallpapers/rain_in_tokyo.jpg
+$HOME/.scripts/setwall.sh /nfs/wallpapers/304216.jpg
+
+#abandoned-barn.jpg
+#2195\ -\ CVQUPdn.jpg
+#2149\ -\ O4apxBz.jpg
+#2035\ -\ r5fQGdj.jpg
+#europeansouthernobservatory.jpg
+
+# Corsair Utility
+#ckb -b
+
+~/.scripts/xstart.sh
