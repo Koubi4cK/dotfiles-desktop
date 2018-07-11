@@ -2,7 +2,7 @@
 
 # terminal
 alt + Return
-	termite
+  urxvt -e fish
 
 # close and kill
 alt + {_,shift + }q
@@ -19,10 +19,10 @@ super + Escape
 
 # Reload bspwm
 alt + shift + r
-	$HOME/.config/bspwm/bspwmrc
+	/home/koubi4ck/.config/bspwm/bspwmrc
 	
 # quit bspwm normally
-super + alt + Escape
+alt + shift + e
 	bspc quit
 
 
@@ -44,9 +44,11 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+alt + shift + space
+	bspc node -t \~floating
 
+alt + shift + f
+    bspc node -t \~fullscreen
 # set the node flags
 super + ctrl + {x,y,z}
 	bspc node -g {locked,sticky,private}
@@ -90,7 +92,7 @@ alt + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
+alt + shift + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio

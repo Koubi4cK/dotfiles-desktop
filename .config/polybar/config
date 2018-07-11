@@ -15,23 +15,26 @@ magenta =  ${xrdb:*.color5}
 cyan =  ${xrdb:*.color6} 
 gray = ${xrdb:*.color8}
 
-module.bg = ${colors.black}
+module.bg = ${colors.background}
 module.fg = ${colors.foreground}
 module.prefix.fg = ${colors.black}
  
 [wm_settings]
-icon_focused = 
-icon_unfocused = 
-
-icon_occupied = 
+; icon_focused = 
+; icon_unfocused = ;
+; icon_occupied = 
+icon_focused = x
+icon_unfocused = 
+icon_occupied = x
 
 padding = 1
 
 [bar_settings]
 height = 20
 
-font = Iosevka Term:size=9;2
-font-icon = WunconSiji:size=4;2
+; font-icon = UW Ttyp0:size=9;2
+font-icon = t cherry:size=10;2
+font = WunconSiji:size=4;2
 
 
 #######################################################################
@@ -117,7 +120,7 @@ wm-restack = bspwm
 type = internal/mpd
 host = 127.0.0.1
 
-format-online = <icon-prev><label-song>
+format-online = <icon-seekb><label-song> <icon-prev><toggle><icon-stop><icon-next>
 
 label-song = %artist% - %title%
 label-song-padding = 1
@@ -125,12 +128,26 @@ label = "%output:0:30:...%"
 label-song-background = ${colors.module.bg}
 label-song-foreground = ${colors.module.fg}
 
-icon-prev = 
-icon-prev-background = ${colors.blue}
-icon-prev-foreground = ${colors.module.prefix.fg}
-icon-prev-padding = 1
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+
+icon-seekb = 
+icon-seekb-background = ${colors.background}
+icon-seekb-foreground = ${colors.blue}
+icon-seekb-padding = 1
 format-online-prefix-padding = 1
 
+
+format-prefix = 
+format-prefix-background = ${colors.green}
+format-prefix-foreground = ${colors.module.prefix.fg}
+format-prefix-padding = 1 
+format-background = ${colors.module.bg}
+format-foreground = ${colors.module.fg}
+format-padding = 0 
 
 [module/xwindow]
 type = internal/xwindow
@@ -143,9 +160,11 @@ pin-workspaces = true
 
 format = <label-state> <label-mode>
 
+label-focused-font = 1
 label-focused = ${wm_settings.icon_focused}
 label-focused-padding = ${wm_settings.padding}
 
+label-occupied-font = 1
 label-occupied = ${wm_settings.icon_occupied}
 label-occupied-padding = ${wm_settings.padding}
 label-occupied-foreground = ${colors.gray}
@@ -213,8 +232,8 @@ time-alt = "%H:%M"
 label = %time%
 
 format-prefix = 
-format-prefix-background = ${colors.green}
-format-prefix-foreground = ${colors.module.prefix.fg}
+format-prefix-background = ${colors.background}
+format-prefix-foreground = ${colors.green}
 format-prefix-padding = 1 
 format-background = ${colors.module.bg}
 format-foreground = ${colors.module.fg}
@@ -232,8 +251,8 @@ exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 format = <label>
 
 format-prefix = ""
-format-prefix-background = ${colors.yellow}
-format-prefix-foreground = ${colors.module.prefix.fg}
+format-prefix-background = ${colors.background}
+format-prefix-foreground = ${colors.yellow}
 format-prefix-padding = 1 
 format-background = ${colors.module.bg}
 format-foreground = ${colors.module.fg}
@@ -284,8 +303,8 @@ format-volume-foreground = ${colors.module.fg}
 format-volume-padding = 0
 
 format-volume-prefix-padding = 1
-format-volume-prefix-background = ${colors.magenta}
-format-volume-prefix-foreground = ${colors.module.prefix.fg}
+format-volume-prefix-background = ${colors.background}
+format-volume-prefix-foreground = ${colors.magenta}
 
 label-muted = ----
 

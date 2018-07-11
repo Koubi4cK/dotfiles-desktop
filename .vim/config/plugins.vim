@@ -5,10 +5,31 @@ hi clear ALEWarningSign
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '·'
 
+let g:ale_fixers = {
+    \   'javascript': ['eslint'],
+    \   'javascript.jsx': ['eslint'],
+    \   'scss': ['prettier'],
+\}
+
+" Syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+
 " NERDTree + NerdTreeGit
 let g:loaded_netrwPlugin = 1
 let g:NERDTreeRespectWildIgnore = 1
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" MatchTagAlways
+let g:mta_filetypes = {
+  \ 'html' : 1,
+  \ 'xhtml' : 1,
+  \ 'xml' : 1,
+  \ 'jinja' : 1,
+  \ 'django': 1,
+  \ 'htmldjango': 1,
+  \ 'eruby': 1,
+  \ 'javascript': 1,
+  \}
 
 " indentline
 let g:indentline_setColors = 1 
@@ -62,4 +83,5 @@ endif
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
 au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
-
+" vim-jsx | Allow JSX in normal JS files
+let g:jsx_ext_required = 0

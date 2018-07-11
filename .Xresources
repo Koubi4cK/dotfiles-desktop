@@ -1,3 +1,12 @@
+
+! DPI/Font
+Xft.dpi: 101
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
 ! special
 *.foreground:   #c5c8c6
 *.background:   #131416
@@ -39,14 +48,18 @@
 ! URxvt
 !
 URxvt*scrollBar: false
-URxvt*font: xft:Iosevka Nerd Font:style=Regular:pixelsize=13
+URxvt*font: xft:t cherry:pixelsize=13, \
+            xft:mplus Nerd Font Mono:pixelsize=13
 
-Xft.autohint: 0
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+! Xft.autohint: 0
+! Xft.lcdfilter:  lcddefault
+! Xft.hintstyle:  hintfull
+! Xft.hinting: 1
+! Xft.antialias: 1
+! Xft.rgba: rgb
 
 ! +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ! Rofi Config                                                   +

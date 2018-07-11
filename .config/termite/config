@@ -1,6 +1,7 @@
 [options]
-font  = Iosevka Term 9
+font    = t cherry 11
 geometry  = 500X250
+allow_bold = false
 
 [colors]
 background = #131416

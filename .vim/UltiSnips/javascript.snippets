@@ -24,6 +24,7 @@ endglobal
 #                         		   Snippets    			                        #
 ###########################################################################
 
+## CommonJs
 snippet fun "function (fun)" w
 function ${1:func_name}(${2:args}) {
 	$3
@@ -58,4 +59,29 @@ if (${1:condition}) {
 } else {
 	$3
 }
+endsnippet
+
+## ReactJS
+snippet reactComp "Create a basic react Component" b
+import React, {Component} from 'react'
+
+class ${1:Component Name} extends Component {
+  render() {
+    return (      
+		<div>$0</div>
+    );
+  }
+}
+
+export default $1
+endsnippet
+
+snippet msp "Redux mapStateToProps" b
+	
+const mapStateToProps = (state) => {
+  return {
+    ${1:store}: state.$2
+  }
+}
+$0
 endsnippet

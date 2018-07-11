@@ -38,6 +38,9 @@ bspc rule -a Pcmanfm state=floating center=on
 bspc rule -a feh state=floating center=on
 bspc rule -a File-roller state=floating center=on
 bspc rule -a Pavucontrol state=floating center=on
+bspc rule -a VirtualBox Machine state=floating center=on
+bspc rule -a mpv state=floating center=on
+bspc rule -a Firefox:Places state=floating center=on
 # Polybar
 $HOME/.config/i3/polybar.sh
  
@@ -45,15 +48,14 @@ $HOME/.config/i3/polybar.sh
 xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --mode 1920x1080 --pos 0x0 --rotate normal --primary
 
 # Wallpaper
-$HOME/.scripts/setwall.sh /nfs/wallpapers/304216.jpg
+wall=/nfs/wallpapers/pen-colors.jpg
+$HOME/.scripts/setwall.sh $wall
 
-#abandoned-barn.jpg
-#2195\ -\ CVQUPdn.jpg
-#2149\ -\ O4apxBz.jpg
-#2035\ -\ r5fQGdj.jpg
-#europeansouthernobservatory.jpg
+# spring_crocus_2-wallpaper-3840x1080.jpg
 
 # Corsair Utility
-#ckb -b
+ckb-next -b
 
 ~/.scripts/xstart.sh
+
+notify-send -t 3000 "bspwm reloaded"

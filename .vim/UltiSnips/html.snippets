@@ -53,9 +53,39 @@ snippet footer# "<footer> with id "
 </footer>
 endsnippet
 
-#p
+snippet id "id global attribute"
+id="$1"
+endsnippet
+
+snippet img "<img>"
+<img src="$1" alt="$2">
+endsnippet
+
+snippet li "list item"
+<li>$1</li>
+endsnippet
+
+# p
 snippet p "<p>"
 <p>$1</p>
 endsnippet
 
+# span
+snippet span "<span>"
+<span>$1</span>
+endsnippet
 
+snippet ul "unordered list"
+<ul>
+	<li>$1</li>
+</ul>
+endsnippet
+
+#
+#	Vendors
+#
+
+#Font awesome
+snippet fab "FontAwesome brand"
+<i class="fab${1:...}"></i>
+endsnippet

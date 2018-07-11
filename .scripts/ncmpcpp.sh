@@ -16,12 +16,15 @@ getMPDCover () {
           | grep "<image size=\"large\">" \
           | sed -e 's/<image size=\"large\">\(.*\)<\/image>/\1/' 
       )
-  wget $URL -qO /tmp/$FILE.png 
+    
+    
+    wget $URL -qO /tmp/$FILE.png &> /dev/null 
+
 }
 
 if [ ! -f "/tmp/$FILE.png" ]
 then  
-  getMPDCover
+    getMPDCover
 fi
   dunstify -r 2395 -t 5000  -i "/tmp/$FILE.png" "<b>$TITLE</b><br/>$ARTIST"
 
